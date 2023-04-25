@@ -3,21 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Laboratory_Management_System.Helpers;
 using SQLite;
 
 namespace Laboratory_Management_System.Models
 {
-    [Table("room")]
-    public class Room
+    [Table(Constants.RoomTable)]
+    public class Room : BaseModel
     {
-        // Set primary key
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
-
         // Attributes
-        public string name { get; set; }
-        public string building { get; set; }
-        public string number { get; set; }
+        public string Building { get; set; }
+        public string Number { get; set; }
     }
 }

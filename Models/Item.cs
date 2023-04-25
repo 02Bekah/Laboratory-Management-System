@@ -3,27 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Laboratory_Management_System.Helpers;
 using SQLite;
 
 namespace Laboratory_Management_System.Models
 {
-    [Table("item")]
-    public class Item
+    [Table(Constants.ItemTable)]
+    public class Item : BaseModel
     {
-        // Set primary key
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
-
         // Set attributes
-        public string Name { get; set; }
         public string Model { get; set; }
         public string Version { get; set; }
         public string SerialNumber { get; set; }
-        public DateTime ManufactureDate { get; set; }
-        public DateTime PurchaseDate { get; set; }
-        public Manufacturer Manufacturer { get; set; }
-        public Department Department { get; set; }
-        public Room Location { get; set; }
+        public string ManufactureDate { get; set; }
+        public string PurchaseDate { get; set; }
+        public int ManufacturerID { get; set; }
+        public int DepartmentID { get; set; }
+        public int LocationID { get; set; }
     }
 }

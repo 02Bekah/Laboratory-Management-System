@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Laboratory_Management_System.Models
 {
-    public abstract class Contact
+    public abstract class Contact : BaseModel
     {
-        public string Name { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
     }

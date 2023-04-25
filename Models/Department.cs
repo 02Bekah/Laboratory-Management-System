@@ -3,19 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Laboratory_Management_System.Helpers;
 using SQLite;
 
 namespace Laboratory_Management_System.Models
 {
-    [Table("department")]
-    public class Department
+    [Table(Constants.DepartmentTable)]
+    public class Department : BaseModel
     {
-        // Set primary key
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
-
         // Set attributes
-        public Person DepartmentHead { get; set; }
+        public int DepartmentHeadID { get; set; }
     }
 }
