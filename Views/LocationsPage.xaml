@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Laboratory_Management_System.ViewModels"
+             xmlns:local="clr-namespace:Laboratory_Management_System"
+             x:Class="Laboratory_Management_System.Views.LocationsPage"
+             Title="LocationsPage">
+
+    <ContentPage.BindingContext>
+        <viewModels:RoomViewModel />
+    </ContentPage.BindingContext>
+    
+    <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Entry x:Name="NameEntry"
+                   Placeholder="Enter room name..." 
+                   Grid.Row="0" Grid.Column="0" />
+            <Entry x:Name="NumberEntry"
+                   Placeholder="Enter room number..."
+                   Grid.Row="0" Grid.Column="1" />
+            <Entry x:Name="BuildingEntry"
+                   Placeholder="Enter building name..."
+                   Grid.Row="0" Grid.Column="2" />
+        
+            <Button x:Name="AddRoom"
+                    Text="Add room"
+                    Grid.Row="1" Grid.Column="1"
+                    Clicked="AddRoomButtonClicked" />
+        </Grid>
+
+        <ListView ItemsSource="{Binding }"
+                  
+            />
+    </StackLayout>
+
+</ContentPage>

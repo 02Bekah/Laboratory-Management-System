@@ -13,7 +13,7 @@ namespace Laboratory_Management_System.Models
     {
         // Attributes
         public string OperatingSystem { get; set; }
-        public string Accounts { get; set; }
-        public string Softwares { get; set; }
+        public Login Account { get; set; }
+        public string Software { get; set; }
     }
 }

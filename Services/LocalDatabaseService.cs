@@ -20,6 +20,12 @@ namespace Laboratory_Management_System.Services
         {
             this._dbpath = _dbpath;
         }
+
+        public LocalDatabaseService()
+        {
+
+        }
+
         private async Task Init()
         {
             // Database connection

@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Laboratory_Management_System.Helpers;
 using SQLite;
 
+// IGNORE FOR NOW
+
 namespace Laboratory_Management_System.Models
 {
     [Table(Constants.SoftwareTable)]

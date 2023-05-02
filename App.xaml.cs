@@ -1,4 +1,6 @@
-﻿namespace Laboratory_Management_System;
+﻿using Laboratory_Management_System.Views;
+
+namespace Laboratory_Management_System;
 
 public partial class App : Application
 {

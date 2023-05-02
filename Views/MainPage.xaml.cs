@@ -1,4 +1,4 @@
-﻿namespace Laboratory_Management_System;
+﻿namespace Laboratory_Management_System.Views;
 
 public partial class MainPage : ContentPage
 {
