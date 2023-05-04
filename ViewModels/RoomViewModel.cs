@@ -22,13 +22,13 @@ namespace Laboratory_Management_System.ViewModels
 
         public async Task AddNewRoom(string name, string number, string building)
         {
-            string query = $"INSERT INTO {Constants.RoomTable} VALUES ({name}, {number}, {building});";
+            string query = $"INSERT INTO {Constants.RoomTable} (name, number, building) VALUES ('{name}', '{number}', '{building}');";
             await _databaseService.ExecuteQuery(query);
         }
 
         public async Task GetAllRooms()
         {
-             IEnumerable<Room> roomList = await Task.Run(() =>_databaseService.GetItems<Room>());
+             roomList = await _databaseService.GetItems<Room>();
         }
     }
 }

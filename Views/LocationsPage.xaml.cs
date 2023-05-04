@@ -19,5 +19,18 @@ public partial class LocationsPage : ContentPage
         string _building = BuildingEntry.Text;
 
         await rooms.AddNewRoom(_name, _number, _building);
+        await GetRooms(sender, e);
+        
+    }
+
+    public async void SeeRoomsButtonClicked(object sender, EventArgs e)
+    {
+        await GetRooms(sender, e);
+    }
+
+    public async Task GetRooms(object sender, EventArgs e)
+    {
+        await rooms.GetAllRooms();
+        roomlistview.ItemsSource = rooms.roomList;
     }
 }
