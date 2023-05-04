@@ -9,7 +9,7 @@
     <ContentPage.BindingContext>
         <viewModels:RoomViewModel />
     </ContentPage.BindingContext>
-    
+
     <StackLayout>
         <Grid>
             <Grid.RowDefinitions>
@@ -31,16 +31,44 @@
             <Entry x:Name="BuildingEntry"
                    Placeholder="Enter building name..."
                    Grid.Row="0" Grid.Column="2" />
-        
+
             <Button x:Name="AddRoom"
                     Text="Add room"
                     Grid.Row="1" Grid.Column="1"
                     Clicked="AddRoomButtonClicked" />
         </Grid>
 
-        <ListView ItemsSource="{Binding }"
-                  
-            />
-    </StackLayout>
+        <ListView ItemsSource="{Binding roomList}">
+            <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid Padding="10">
 
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row ="0"
+                                       Grid.Column="0"
+                                       Text="{Binding roomList.Name}" />
+                        <Label Grid.Row="0"
+                                       Grid.Column="1"
+                                       Text="{Binding roomList.Number}" />
+                        <Label Grid.Row="0"
+                                       Grid.Column="2"
+                                       Text="{Binding roomList.Building}" />
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+    
 </ContentPage>

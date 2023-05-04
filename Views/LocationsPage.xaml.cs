@@ -9,6 +9,7 @@ public partial class LocationsPage : ContentPage
 	{
         InitializeComponent();
         rooms = new RoomViewModel();
+
     }
 
     public async void AddRoomButtonClicked(object sender, EventArgs e)

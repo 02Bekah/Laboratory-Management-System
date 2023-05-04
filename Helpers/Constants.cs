@@ -30,7 +30,7 @@ namespace Laboratory_Management_System.Helpers
         public const string SoftwareTable = "software";
 
         // Create table statements
-        public const string CreateRoomTable = $"CREATE TABLE IF NOT EXISTS {RoomTable} (Id INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT, Building TEXT, Number TEXT);";
+        public const string CreateRoomTable = $"CREATE TABLE IF NOT EXISTS {RoomTable} (Id INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT, Number TEXT, Building TEXT);";
         public const string CreateManufacturerTable = $"CREATE TABLE IF NOT EXISTS {ManufacturerTable} (Id INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT, Phone TEXT, Email TEXT, Website TEXT);";
         public const string CreatePersonTable = $"CREATE TABLE IF NOT EXISTS {PersonTable} (Id INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT, Phone TEXT, Email TEXT, OfficeID INTEGER, FOREIGN KEY(OfficeID) REFERENCES rooms(Id));";
         public const string CreateDepartmentTable = $"CREATE TABLE IF NOT EXISTS {DepartmentTable} (Id INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT, DepartmentHeadID INTEGER, FOREIGN KEY(DepartmentHeadID) REFERENCES people(Id));";
