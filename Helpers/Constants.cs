@@ -28,9 +28,10 @@ namespace Laboratory_Management_System.Helpers
         public const string PersonTable = "people";
         public const string RoomTable = "rooms";
         public const string SoftwareTable = "software";
+        public const string BuildingTable = "buildings";
 
         // Create table statements
-        public const string CreateRoomTable = $"CREATE TABLE IF NOT EXISTS {RoomTable} (Id INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT, Number TEXT, Building TEXT);";
+        public const string CreateRoomTable = $"CREATE TABLE IF NOT EXISTS {RoomTable} (Id INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT, Number TEXT, Type TEXT, BuildingID INTEGER);";
         public const string CreateManufacturerTable = $"CREATE TABLE IF NOT EXISTS {ManufacturerTable} (Id INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT, Phone TEXT, Email TEXT, Website TEXT);";
         public const string CreatePersonTable = $"CREATE TABLE IF NOT EXISTS {PersonTable} (Id INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT, Phone TEXT, Email TEXT, OfficeID INTEGER, FOREIGN KEY(OfficeID) REFERENCES rooms(Id));";
         public const string CreateDepartmentTable = $"CREATE TABLE IF NOT EXISTS {DepartmentTable} (Id INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT, DepartmentHeadID INTEGER, FOREIGN KEY(DepartmentHeadID) REFERENCES people(Id));";
@@ -39,5 +40,6 @@ namespace Laboratory_Management_System.Helpers
         public const string CreateConsumableTable = $"CREATE TABLE IF NOT EXISTS {ConsumableTable} (Id INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT, Model TEXT, Version TEXT, PresentCount INTEGER, RequiredCount INTEGER, Description TEXT);";
         public const string CreateMachineTable = $"CREATE TABLE IF NOT EXISTS {MachineTable} (Id INTEGER PRIMARY KEY AUTOINCREMENT);";
         public const string CreateSoftwareTable = $"CREATE TABLE IF NOT EXISTS {SoftwareTable} (Id INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT, Model TEXT, Version TEXT, PurchaseDate TEXT, OS_Support TEXT, CPU_Requirements TEXT, Graphics_Requirements TEXT, Memory_Requirements TEXT, LicenseKey TEXT, Size REAL, ManufacturerID INTEGER, FOREIGN KEY(ManufacturerID) REFERENCES manufacturers(Id));";
+        public const string CreateBuildingTable = $"CREATE TABLE IF NOT EXISTS {BuildingTable} (Id INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT);";
     }
 }

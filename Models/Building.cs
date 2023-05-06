@@ -8,12 +8,9 @@ using SQLite;
 
 namespace Laboratory_Management_System.Models
 {
-    [Table(Constants.RoomTable)]
-    public class Room : BaseModel
+    [Table(Constants.BuildingTable)]
+    public class Building : BaseModel
     {
-        // Attributes
-        public int BuildingID { get; set; }
-        public string Number { get; set; }
-        public string Type { get; set; }
+
     }
 }

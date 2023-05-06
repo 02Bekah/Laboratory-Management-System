@@ -60,7 +60,8 @@ namespace Laboratory_Management_System.Services
                 Constants.CreateComputerTable,
                 Constants.CreateConsumableTable,
                 Constants.CreateMachineTable,
-                Constants.CreateSoftwareTable
+                Constants.CreateSoftwareTable,
+                Constants.CreateBuildingTable
             };
 
             foreach (var statement in createTableStatements)

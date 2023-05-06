@@ -49,12 +49,20 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Views\LocationsPage.xaml.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Remove="Views\LocationsPage.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
 	  <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.4" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\LocationsPage.xaml">
+	  <MauiXaml Update="Views\EditLocationView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

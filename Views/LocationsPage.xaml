@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewModels="clr-namespace:Laboratory_Management_System.ViewModels"
+             xmlns:ViewModels="clr-namespace:Laboratory_Management_System.ViewModels"
              xmlns:local="clr-namespace:Laboratory_Management_System"
              x:Class="Laboratory_Management_System.Views.LocationsPage"
              Title="LocationsPage">
 
     <ContentPage.BindingContext>
-        <viewModels:RoomViewModel />
+        <ViewModels:RoomViewModel />
     </ContentPage.BindingContext>
 
     <StackLayout>
@@ -47,7 +47,7 @@
             <CollectionView x:Name="roomlistview"
                             Grid.Row ="2"
                             Grid.ColumnSpan="3"
-                            ItemsSource="{Binding roomList}">
+                            ItemsSource="{Binding AllRooms}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -57,7 +57,6 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="250" />
                                 <ColumnDefinition Width="100" />
-                                <ColumnDefinition Width="250" />
                             </Grid.ColumnDefinitions>
 
                             <Label Grid.Row="0"
@@ -66,9 +65,6 @@
                             <Label Grid.Row="0"
                                    Grid.Column="1"
                                    Text="{Binding Number}" />
-                            <Label Grid.Row="0"
-                                   Grid.Column="2"
-                                   Text="{Binding Building}" />
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

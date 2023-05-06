@@ -10,9 +10,10 @@
         Title="Home"
         ContentTemplate="{DataTemplate views:MainPage}"
         Route="MainPage" />
+
     <ShellContent
-        Title="Rooms"
-        ContentTemplate="{DataTemplate views:LocationsPage}"
-        Route="LocationsPage" />
+        Title="Location Information"
+        ContentTemplate="{DataTemplate views:EditLocationView}"
+        Route="EditLocation" />
 
 </Shell>
