@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="Laboratory_Management_System.Views.BuildingRoomModalView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ViewModels ="clr-namespace:Laboratory_Management_System.ViewModels"
+    xmlns:services ="clr-namespace:Laboratory_Management_System.Services"
+    Title="Rooms">
+
+    <ScrollView>
+        <StackLayout>
+
+            <Label Text="Rooms"
+                   FontSize="40" />
+
+            <Button x:Name="AddRoomButton"
+                    Clicked="OnAddRoomButtonClicked"
+                    Text="Add Room"/>
+
+            <Label Text="Name"
+                   FontSize="20"
+                   Grid.Row="0"
+                   Grid.Column="0" />
+            
+            <Label Text="Number"
+                   FontSize="20"
+                   Grid.Row="0"
+                   Grid.Column="1" />
+
+            <CollectionView x:Name="RoomCollection"
+                            SelectionMode="Single"
+                            SelectionChanged="OnRoomCollectionSelectionChanged">
+                <CollectionView.BindingContext>
+                    <ViewModels:RoomViewModel/>
+                </CollectionView.BindingContext>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label x:Name="RoomName"
+                                   Text="{Binding Name, Mode=TwoWay}" />
+
+                            <Label x:Name="RoomNumber"
+                                   Text="{Binding Number, Mode=TwoWay}" />
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

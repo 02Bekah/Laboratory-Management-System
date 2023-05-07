@@ -15,6 +15,7 @@ namespace Laboratory_Management_System.ViewModels
         public IEnumerable<Room> Offices;
         public IEnumerable<Room> Labs;
         public IEnumerable<Room> Classrooms;
+        public IEnumerable<Room> RoomsInBuilding;
         public IEnumerable<String> ValidRoomTypes;
         
         public RoomViewModel() : base()
@@ -36,13 +37,19 @@ namespace Laboratory_Management_System.ViewModels
         public async Task GetLabs()
         {
             Query = $"SELECT * FROM {Constants.RoomTable} WHERE type = 'Lab';";
-            Offices = await DatabaseService.GetItemsWithQuery<Room>(Query);
+            Labs = await DatabaseService.GetItemsWithQuery<Room>(Query);
         }
 
         public async Task GetClassrooms()
         {
             Query = $"SELECT * FROM {Constants.RoomTable} WHERE type = 'Classroom';";
-            Offices = await DatabaseService.GetItemsWithQuery<Room>(Query);
+            Classrooms = await DatabaseService.GetItemsWithQuery<Room>(Query);
+        }
+
+        public async Task GetRoomsByBuilding(int buildingID)
+        {
+            Query = $"SELECT * FROM {Constants.RoomTable} WHERE BuildingID = {buildingID};";
+            RoomsInBuilding = await DatabaseService.GetItemsWithQuery<Room>(Query);
         }
 
         public async Task AddNewRoom(string name, string number, string building, string type)
