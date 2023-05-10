@@ -65,9 +65,6 @@
 	  <Compile Update="Views\BuildingRoomView.xaml.cs">
 	    <DependentUpon>BuildingRoomView.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\EditLocationView.xaml.cs">
-	    <DependentUpon>EditLocationView.xaml</DependentUpon>
-	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -78,9 +75,6 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\BuildingView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\EditLocationView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

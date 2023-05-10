@@ -46,11 +46,17 @@ namespace Laboratory_Management_System.ViewModels
 
         public async Task DeleteBuilding(int id)
         {
+            await DeleteRoomsInBuilding(id);
 
             Query = $"DELETE FROM {Constants.BuildingTable} WHERE id = {id};";
             await DatabaseService.ExecuteQuery(Query);
         }
 
+        public async Task DeleteRoomsInBuilding(int id)
+        {
+            Query = $"DELETE FROM {Constants.RoomTable} WHERE buildingid = {id};";
+            await DatabaseService.ExecuteQuery(Query);
+        }
 
     }
 }

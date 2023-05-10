@@ -14,8 +14,6 @@ namespace Laboratory_Management_System.Views
 
             RoomVM = new RoomViewModel();
 
-            BindingContext = this;
-
             _buildingID = buildingID;
         }
 

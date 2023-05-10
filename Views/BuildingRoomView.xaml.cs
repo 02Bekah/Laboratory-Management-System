@@ -3,15 +3,25 @@ using Laboratory_Management_System.ViewModels;
 
 namespace Laboratory_Management_System.Views
 {
-    [QueryProperty(nameof(building), "building")]
+    [QueryProperty(nameof(Building), "building")]
     public partial class BuildingRoomView : ContentPage
     {
-        public int BuildingID;
-        public Building building
+        // Working
+        public int _buildingID;
+        // Not working but should be
+        Building _building;
+        public Building Building
         {
+            get
+            {
+                return _building;
+            }
             set
             {
-                BuildingID = value.Id;
+                // Working
+                _buildingID = value.Id;
+                // Not working but should be
+                _building = value;
             }
         }
         
@@ -24,13 +34,17 @@ namespace Laboratory_Management_System.Views
             InitializeComponent();
 
             RoomVM = new RoomViewModel();
-            GetRooms().GetAwaiter();
             BindingContext = this;
+
+            GetRooms().GetAwaiter();
+
         }
 
         public async Task GetRooms()
         {
-            await RoomVM.GetRoomsByBuilding(BuildingID);
+            // Unsure why calling method twice is required
+            await RoomVM.GetRoomsByBuilding(_buildingID);
+            await RoomVM.GetRoomsByBuilding(_buildingID);
 
             RoomCollection.ItemsSource = RoomVM.RoomsInBuilding;
         }
@@ -39,7 +53,7 @@ namespace Laboratory_Management_System.Views
         public async void OnRoomCollectionSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Room room = e.CurrentSelection.LastOrDefault() as Room;
-            string _action = await DisplayActionSheet($"{room.Name}", "Cancel", null, "Change Name", "Delete");
+            string _action = await DisplayActionSheet($"{room.Name}", "Cancel", null, "Delete");
 
             switch (_action)
             {
@@ -47,17 +61,13 @@ namespace Laboratory_Management_System.Views
                     await RoomVM.DeleteRoom(room.Id);
                     await GetRooms();
                     break;
-                case "Update":
-                    break;
             }
         }
 
         public async void OnAddRoomButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new AddNewRoomView(BuildingID));
-
-            RoomCollection.ItemsSource = Rooms;
-
+            await Navigation.PushModalAsync(new AddNewRoomView(_building.Id));
+            return;
         }
     }
 }

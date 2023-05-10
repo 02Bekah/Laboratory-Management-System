@@ -21,6 +21,7 @@ namespace Laboratory_Management_System.Views
             await BuildingsVM.GetAllBuildings();
 
             BuildingCollection.ItemsSource = BuildingsVM.Buildings;
+
         }
         public async void OnAddBuildingButtonClicked(object sender, EventArgs e)
         {
@@ -36,15 +37,18 @@ namespace Laboratory_Management_System.Views
             Building building = e.CurrentSelection.LastOrDefault() as Building;
             string _action = await DisplayActionSheet($"{building.Name}", "Cancel", null, "See Rooms", "Change Name", "Delete");
 
-            switch(_action) {
+            switch (_action) {
                 case "Delete":
                     await BuildingsVM.DeleteBuilding(building.Id);
                     await GetBuildings();
                     break;
-                case "Update":
-                    string _name = await DisplayPromptAsync("Change Name", "Enter the new name:");
-                    await BuildingsVM.UpdateBuilding(building.Id, _name);
-                    await GetBuildings();
+                case "Change Name":
+                    //await Navigation.PushModalAsync(new UpdateBuildingView(building));
+                    string _name = await DisplayPromptAsync($"{building.Name}", "Enter the New Name", "Save", "Cancel");
+                    if (_name is not null) { 
+                        await BuildingsVM.UpdateBuilding(building.Id, _name);
+                        await GetBuildings();
+                    }
                     break;
                 case "See Rooms":
                     var navigationParameter = new Dictionary<string, object>
