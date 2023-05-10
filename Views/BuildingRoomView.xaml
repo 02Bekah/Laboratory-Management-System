@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage
-    x:Class="Laboratory_Management_System.Views.BuildingRoomModalView"
+    x:Class="Laboratory_Management_System.Views.BuildingRoomView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ViewModels ="clr-namespace:Laboratory_Management_System.ViewModels"
@@ -38,17 +38,23 @@
                     <DataTemplate>
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="100" />
+                                <RowDefinition Height="100" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
                             </Grid.ColumnDefinitions>
 
                             <Label x:Name="RoomName"
-                                   Text="{Binding Name, Mode=TwoWay}" />
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   Text="{Binding Name}" />
 
                             <Label x:Name="RoomNumber"
-                                   Text="{Binding Number, Mode=TwoWay}" />
+                                   Grid.Row="0"
+                                   Grid.Column="1"
+                                   Text="{Binding Number}" />
 
                         </Grid>
                     </DataTemplate>

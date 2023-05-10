@@ -52,9 +52,9 @@ namespace Laboratory_Management_System.ViewModels
             RoomsInBuilding = await DatabaseService.GetItemsWithQuery<Room>(Query);
         }
 
-        public async Task AddNewRoom(string name, string number, string building, string type)
+        public async Task AddNewRoom(string name, string number, int buildingID, string type)
         {
-            Query = $"INSERT INTO {Constants.RoomTable} (name, number, building, type) VALUES ('{name}', '{number}', '{building}', '{type}');";
+            Query = $"INSERT INTO {Constants.RoomTable} (name, number, type, buildingid) VALUES ('{name}', '{number}', '{type}', {buildingID});";
             await DatabaseService.ExecuteQuery(Query);
         }
 

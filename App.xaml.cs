@@ -9,5 +9,8 @@ public partial class App : Application
 		InitializeComponent();
 
 		MainPage = new AppShell();
+
+		// Register routes
+		Routing.RegisterRoute("buildingroom", typeof(BuildingRoomView));
 	}
 }

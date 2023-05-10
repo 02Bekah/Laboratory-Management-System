@@ -62,13 +62,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\BuildingRoomView.xaml.cs">
+	    <DependentUpon>BuildingRoomView.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\EditLocationView.xaml.cs">
 	    <DependentUpon>EditLocationView.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\BuildingRoomModalView.xaml">
+	  <MauiXaml Update="Views\AddNewRoomView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\BuildingRoomView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\BuildingView.xaml">

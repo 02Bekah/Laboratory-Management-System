@@ -39,6 +39,9 @@ namespace Laboratory_Management_System.Services
                 _databaseConn.Tracer = new Action<string>(q => Debug.WriteLine(q));
                 _databaseConn.Trace = true;
 
+                // Uncomment to delete tables before re-initializing
+                //await DeleteTables();
+
                 await CreateTables();
             }
             catch (Exception ex)
@@ -65,6 +68,27 @@ namespace Laboratory_Management_System.Services
             };
 
             foreach (var statement in createTableStatements)
+                await ExecuteQuery(statement);
+        }
+
+        private async Task DeleteTables()
+        {
+
+            var deleteTableStatements = new List<string>()
+            {
+                Constants.DeleteRoomTable,
+                Constants.DeleteManufacturerTable,
+                Constants.DeletePersonTable,
+                Constants.DeleteDepartmentTable,
+                Constants.DeleteItemTable,
+                Constants.DeleteComputerTable,
+                Constants.DeleteConsumableTable,
+                Constants.DeleteMachineTable,
+                Constants.DeleteSoftwareTable,
+                Constants.DeleteBuildingTable
+            };
+
+            foreach (var statement in deleteTableStatements)
                 await ExecuteQuery(statement);
         }
 

@@ -22,10 +22,6 @@ namespace Laboratory_Management_System.Views
 
             BuildingCollection.ItemsSource = BuildingsVM.Buildings;
         }
-        public async void OnBuildingBtnClicked(object sender, EventArgs e)
-        {
-            string _action = await DisplayActionSheet("Building", "Cancel", null, "See Rooms", "Change Name", "Delete");
-        }
         public async void OnAddBuildingButtonClicked(object sender, EventArgs e)
         {
             string _name = await DisplayPromptAsync("New Building", "Name");
@@ -51,7 +47,12 @@ namespace Laboratory_Management_System.Views
                     await GetBuildings();
                     break;
                 case "See Rooms":
-                    await Shell.Current.GoToAsync($"//BuildingRoomModalView({building})");
+                    var navigationParameter = new Dictionary<string, object>
+                    {
+                        {"building", building }
+                    };
+
+                    await Shell.Current.GoToAsync($"buildingroom", navigationParameter);
                     break;
             }
         }
