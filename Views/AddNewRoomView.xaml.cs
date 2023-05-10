@@ -23,8 +23,15 @@ namespace Laboratory_Management_System.Views
             string _number = roomNumberEntry.Text;
             string _type = roomTypeEntry.Text;
 
-            await RoomVM.AddNewRoom(_name, _number, _buildingID, _type);
-            await Navigation.PopModalAsync();
+            string addRoomMsg = "Add " + _name + ", " + _number + "?";
+
+            bool _confirm = await DisplayAlert("Confirm", addRoomMsg, "Yes", "No");
+
+            if (_confirm)
+            {
+                await RoomVM.AddNewRoom(_name, _number, _buildingID, _type);
+                await Navigation.PopModalAsync();
+            }
         }
     }
 }

@@ -42,7 +42,7 @@ namespace Laboratory_Management_System.Views
 
         public async Task GetRooms()
         {
-            // Unsure why calling method twice is required
+            // _buildingID is not initialized during first call
             await RoomVM.GetRoomsByBuilding(_buildingID);
             await RoomVM.GetRoomsByBuilding(_buildingID);
 
@@ -52,14 +52,19 @@ namespace Laboratory_Management_System.Views
 
         public async void OnRoomCollectionSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            bool _confirm;
             Room room = e.CurrentSelection.LastOrDefault() as Room;
             string _action = await DisplayActionSheet($"{room.Name}", "Cancel", null, "Delete");
 
             switch (_action)
             {
                 case "Delete":
-                    await RoomVM.DeleteRoom(room.Id);
-                    await GetRooms();
+                    _confirm = await DisplayAlert("Confirm", "Delete room " + room.Name + "?", "Yes", "No");
+                    if (_confirm)
+                    {
+                        await RoomVM.DeleteRoom(room.Id);
+                        await GetRooms();
+                    }
                     break;
             }
         }

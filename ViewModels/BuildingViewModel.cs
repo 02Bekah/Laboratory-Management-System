@@ -13,15 +13,10 @@ using Laboratory_Management_System.Services;
 
 namespace Laboratory_Management_System.ViewModels
 {
-    public class BuildingViewModel : INotifyPropertyChanged
+    public class BuildingViewModel : BaseViewModel
     {
-        // Database service
-        public LocalDatabaseService DatabaseService;
-        public string Query;
-        public event PropertyChangedEventHandler PropertyChanged;
+        
         public IEnumerable<Building> Buildings;
-
-        public ICommand DeleteBuildingCmd { set; get; }
 
         public BuildingViewModel() : base()
         {
