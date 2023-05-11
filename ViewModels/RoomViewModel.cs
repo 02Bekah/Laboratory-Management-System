@@ -17,10 +17,16 @@ namespace Laboratory_Management_System.ViewModels
         public IEnumerable<Room> Classrooms;
         public IEnumerable<Room> RoomsInBuilding;
         public IEnumerable<String> ValidRoomTypes;
+        public Room room;
         
         public RoomViewModel() : base()
         {
             ValidRoomTypes = new List<String>() { "Office", "Lab", "Classroom" };
+        }
+
+        public async Task GetRoom(int roomID)
+        {
+            Query = $"SELECT * FROM {Constants.RoomTable} WHERE id = {roomID};";
         }
 
         public async Task GetAllRooms()
@@ -70,5 +76,6 @@ namespace Laboratory_Management_System.ViewModels
             Query = $"DELETE FROM {Constants.RoomTable} WHERE id = {id};";
             await DatabaseService.ExecuteQuery(Query);
         }
+
     }
 }

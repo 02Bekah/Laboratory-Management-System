@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="Laboratory_Management_System.Views.RoomView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ViewModels ="clr-namespace:Laboratory_Management_System.ViewModels"
+    xmlns:services ="clr-namespace:Laboratory_Management_System.Services"
+    Title="Room">
+
+    <Grid>
+        <Grid.BindingContext>
+            <ViewModels:RoomViewModel/>
+        </Grid.BindingContext>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="80"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Text="Enter Room Name:"
+               Grid.Row="1"
+               Grid.Column="0" />
+
+        <Entry x:Name="roomNameEntry"
+               Grid.Row="2"
+               Grid.Column="0"/>
+
+        <Label Text="Enter Room Number:"
+               Grid.Row="1"
+               Grid.Column="1" />
+
+        <Entry x:Name="roomNumberEntry"
+               Grid.Row="2"
+               Grid.Column="1"/>
+
+        <Picker x:Name="PickRoomType"
+                Title="Select Room Type"
+                ItemsSource="{Binding ValidRoomTypes}"
+                Grid.Row="1"
+                Grid.Column="2"
+                Grid.RowSpan="2"
+                SelectedIndexChanged="OnPickRoomTypeSelectedIndexChanged"/>
+
+        <Button x:Name="SaveRoomBtn"
+                Grid.Row="3"
+                Grid.Column="3"
+                Text="Save"
+                FontSize="15"
+                Clicked="OnSaveRoomBtnClicked"/>
+
+        <Button x:Name="ExitBtn"
+                Grid.Row="3"
+                Grid.Column="4"
+                Text="Cancel"
+                FontSize="15"
+                Clicked="OnExitButtonClicked"/>
+
+    </Grid>
+
+</ContentPage>

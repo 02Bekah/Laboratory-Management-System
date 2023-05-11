@@ -12,8 +12,13 @@
         Route="MainPage" />
 
     <ShellContent
-        Title="Location Information"
+        Title="Buildings"
         ContentTemplate="{DataTemplate views:BuildingView}"
         Route="BuildingView" />
+
+    <ShellContent
+        Title="Departments"
+        ContentTemplate="{DataTemplate views:DepartmentView}"
+        Route="DepartmentView" />
 
 </Shell>

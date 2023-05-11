@@ -62,13 +62,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\RoomView.xaml.cs">
+	    <DependentUpon>RoomView.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\BuildingRoomView.xaml.cs">
 	    <DependentUpon>BuildingRoomView.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\AddNewRoomView.xaml">
+	  <MauiXaml Update="Views\RoomView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\BuildingRoomView.xaml">
@@ -78,9 +81,6 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\DepartmentView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\PersonView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

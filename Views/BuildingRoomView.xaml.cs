@@ -54,10 +54,13 @@ namespace Laboratory_Management_System.Views
         {
             bool _confirm;
             Room room = e.CurrentSelection.LastOrDefault() as Room;
-            string _action = await DisplayActionSheet($"{room.Name}", "Cancel", null, "Delete");
+            string _action = await DisplayActionSheet($"{room.Name}", "Cancel", null, "Change Name", "Delete");
 
             switch (_action)
             {
+                case "Change Name":
+                    await Navigation.PushModalAsync(new RoomView(_buildingID, room));
+                    break;
                 case "Delete":
                     _confirm = await DisplayAlert("Confirm", "Delete room " + room.Name + "?", "Yes", "No");
                     if (_confirm)
@@ -71,8 +74,13 @@ namespace Laboratory_Management_System.Views
 
         public async void OnAddRoomButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new AddNewRoomView(_building.Id));
-            return;
+            await Navigation.PushModalAsync(new RoomView(_building.Id));
+
+        }
+
+        public async void OnRefreshRoomsButtonClicked(object sender, EventArgs e)
+        {
+            await GetRooms();
         }
     }
 }

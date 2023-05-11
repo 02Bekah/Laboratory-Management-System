@@ -9,23 +9,45 @@
 
     <ScrollView>
         <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
 
             <Label Text="Rooms"
-                   FontSize="40" />
+                   FontSize="40"
+                   Grid.Row="0"
+                   Grid.ColumnSpan="2"/>
 
             <Button x:Name="AddRoomButton"
                     Clicked="OnAddRoomButtonClicked"
-                    Text="Add Room"/>
+                    Text="Add Room"
+                    Grid.Row="1"
+                    Grid.Column="0"/>
+
+            <Button x:Name="RefreshRoomsButton"
+                    Clicked="OnRefreshRoomsButtonClicked"
+                    Text="Refresh"
+                    Grid.Row="1"
+                    Grid.Column="1"/>
 
             <Label Text="Name"
                    FontSize="20"
-                   Grid.Row="0"
-                   Grid.Column="0" />
+                   Grid.Row="2"
+                   Grid.Column="0"/>
             
             <Label Text="Number"
                    FontSize="20"
-                   Grid.Row="0"
+                   Grid.Row="2"
                    Grid.Column="1" />
+            </Grid>
 
             <CollectionView x:Name="RoomCollection"
                             SelectionMode="Single"
@@ -38,8 +60,8 @@
                     <DataTemplate>
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="100" />
-                                <RowDefinition Height="100" />
+                                <RowDefinition Height="40" />
+                                <RowDefinition Height="40" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="100" />
