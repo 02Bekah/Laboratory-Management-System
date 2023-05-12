@@ -16,9 +16,4 @@
         ContentTemplate="{DataTemplate views:BuildingView}"
         Route="BuildingView" />
 
-    <ShellContent
-        Title="Departments"
-        ContentTemplate="{DataTemplate views:DepartmentView}"
-        Route="DepartmentView" />
-
 </Shell>
